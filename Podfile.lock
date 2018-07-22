@@ -1,0 +1,160 @@
+PODS:
+  - AccountKit (4.31.0)
+  - Alamofire (4.7.2)
+  - BoringSSL (10.0.3):
+    - BoringSSL/Implementation (= 10.0.3)
+    - BoringSSL/Interface (= 10.0.3)
+  - BoringSSL/Implementation (10.0.3):
+    - BoringSSL/Interface (= 10.0.3)
+  - BoringSSL/Interface (10.0.3)
+  - Firebase/Auth (5.1.0):
+    - Firebase/CoreOnly
+    - FirebaseAuth (= 5.0.0)
+  - Firebase/Core (5.1.0):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (= 5.0.1)
+  - Firebase/CoreOnly (5.1.0):
+    - FirebaseCore (= 5.0.2)
+  - Firebase/Firestore (5.1.0):
+    - Firebase/CoreOnly
+    - FirebaseFirestore (= 0.12.2)
+  - FirebaseAnalytics (5.0.1):
+    - FirebaseCore (~> 5.0)
+    - FirebaseInstanceID (~> 3.0)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+    - nanopb (~> 0.3)
+  - FirebaseAuth (5.0.0):
+    - FirebaseCore (~> 5.0)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - FirebaseCore (5.0.2):
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+  - FirebaseFirestore (0.12.2):
+    - FirebaseCore (~> 5.0)
+    - FirebaseFirestore/abseil-cpp (= 0.12.2)
+    - gRPC-ProtoRPC (~> 1.0)
+    - leveldb-library (~> 1.18)
+    - Protobuf (~> 3.1)
+  - FirebaseFirestore/abseil-cpp (0.12.2):
+    - FirebaseCore (~> 5.0)
+    - gRPC-ProtoRPC (~> 1.0)
+    - leveldb-library (~> 1.18)
+    - Protobuf (~> 3.1)
+  - FirebaseInstanceID (3.0.0):
+    - FirebaseCore (~> 5.0)
+  - GoogleMaps (2.3.0):
+    - GoogleMaps/Maps (= 2.3.0)
+  - GoogleMaps/Base (2.3.0)
+  - GoogleMaps/Maps (2.3.0):
+    - GoogleMaps/Base
+  - GooglePlacePicker (2.3.0):
+    - GoogleMaps (= 2.3.0)
+    - GooglePlaces (= 2.3.0)
+  - GooglePlaces (2.3.0):
+    - GoogleMaps/Base (= 2.3.0)
+  - GoogleToolboxForMac/Defines (2.1.4)
+  - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
+    - GoogleToolboxForMac/Defines (= 2.1.4)
+  - gRPC (1.12.0):
+    - gRPC-RxLibrary (= 1.12.0)
+    - gRPC/Main (= 1.12.0)
+  - gRPC-Core (1.12.0):
+    - gRPC-Core/Implementation (= 1.12.0)
+    - gRPC-Core/Interface (= 1.12.0)
+  - gRPC-Core/Implementation (1.12.0):
+    - BoringSSL (~> 10.0)
+    - gRPC-Core/Interface (= 1.12.0)
+    - nanopb (~> 0.3)
+  - gRPC-Core/Interface (1.12.0)
+  - gRPC-ProtoRPC (1.12.0):
+    - gRPC (= 1.12.0)
+    - gRPC-RxLibrary (= 1.12.0)
+    - Protobuf (~> 3.0)
+  - gRPC-RxLibrary (1.12.0)
+  - gRPC/Main (1.12.0):
+    - gRPC-Core (= 1.12.0)
+    - gRPC-RxLibrary (= 1.12.0)
+  - GTMSessionFetcher/Core (1.1.15)
+  - leveldb-library (1.20)
+  - nanopb (0.3.8):
+    - nanopb/decode (= 0.3.8)
+    - nanopb/encode (= 0.3.8)
+  - nanopb/decode (0.3.8)
+  - nanopb/encode (0.3.8)
+  - PromiseKit (6.2.8):
+    - PromiseKit/CorePromise (= 6.2.8)
+    - PromiseKit/Foundation (= 6.2.8)
+    - PromiseKit/UIKit (= 6.2.8)
+  - PromiseKit/CorePromise (6.2.8)
+  - PromiseKit/Foundation (6.2.8):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.2.8):
+    - PromiseKit/CorePromise
+  - Protobuf (3.5.0)
+  - SwiftyJSON (4.1.0)
+
+DEPENDENCIES:
+  - AccountKit
+  - Alamofire
+  - Firebase/Auth
+  - Firebase/Core
+  - Firebase/Firestore
+  - GoogleMaps (= 2.3.0)
+  - GooglePlacePicker (= 2.3.0)
+  - GooglePlaces (= 2.3.0)
+  - PromiseKit
+  - SwiftyJSON
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AccountKit
+    - Alamofire
+    - BoringSSL
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseAuth
+    - FirebaseCore
+    - FirebaseFirestore
+    - FirebaseInstanceID
+    - GoogleMaps
+    - GooglePlacePicker
+    - GooglePlaces
+    - GoogleToolboxForMac
+    - gRPC
+    - gRPC-Core
+    - gRPC-ProtoRPC
+    - gRPC-RxLibrary
+    - GTMSessionFetcher
+    - leveldb-library
+    - nanopb
+    - PromiseKit
+    - Protobuf
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  AccountKit: f3e48047e6fb1c433dff37c61158fd32bbc482cf
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  BoringSSL: c46efb47593135382bc0934196f16d2f726f5f36
+  Firebase: e08fb0795f35707aeb1d8a715c731c45bdf6fd56
+  FirebaseAnalytics: b3628aea54c50464c32c393fb2ea032566e7ecc2
+  FirebaseAuth: acbeef02fe7c3a26624e309849f3fe30c84115af
+  FirebaseCore: b81044df1044c0857a0737c6324678b72d4f7f00
+  FirebaseFirestore: 93b8bf70484c92c271ae93940fe1e2ca9e35f92b
+  FirebaseInstanceID: 83e0040351565df711a5db3d8ebe5ea21aca998a
+  GoogleMaps: 340a6a0bebd17c2db8abcd3921976c7c53c86cb8
+  GooglePlacePicker: 80a6719aa4d06c63524a231d0ecd8f87e87d98c2
+  GooglePlaces: 74d322c74184ea4576184089b496d291cf0dcd38
+  GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
+  gRPC: 9362451032695e2dfb7bafcd3740e3a27939e4ff
+  gRPC-Core: 9696b220565b283e021cf2722d473a4a74b7622a
+  gRPC-ProtoRPC: a1bd56fb1991a8dae4581250d7259eddabb66779
+  gRPC-RxLibrary: 1ed5314e8b38cd6e55c9bfa048387136ae925ce9
+  GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
+  leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
+  nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  PromiseKit: 6788ce1a0ed5448b83d4aaf56b9fc49fb7647d32
+  Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
+  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+
+PODFILE CHECKSUM: a0d09ff642df1e01852e8f2f276858466fcd64bc
+
+COCOAPODS: 1.5.0
