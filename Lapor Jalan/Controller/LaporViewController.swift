@@ -59,8 +59,7 @@ class LaporViewController: UIViewController, CLLocationManagerDelegate, UIImageP
         
         view.addGestureRecognizer(tap)
     }
-    
-    
+
 
     @IBOutlet weak var lokasiSayaTextField: UITextField!
     
@@ -132,6 +131,7 @@ class LaporViewController: UIViewController, CLLocationManagerDelegate, UIImageP
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         dismiss(animated:true, completion: nil)
         
+        guard let imageToUpload = info[UIImagePickerControllerOriginalImage] as? UIImage else {return}
         imagePicked.image = info[UIImagePickerControllerOriginalImage] as? UIImage
         
         print("----camera sukses----")
@@ -182,6 +182,10 @@ class LaporViewController: UIViewController, CLLocationManagerDelegate, UIImageP
 //
 //    }
     
+    func uploadImage(){
+        
+    }
+    
     private func kirimSemua(){
         db.collection("cities").document("laporan").setData(["username": "alfintaufiq", "date": tanggal, "image": UIImagePickerControllerOriginalImage, "lokasi": lokasi, "deskripsi": "deskripsi"]) {err in
         if let err = err {
@@ -200,8 +204,13 @@ class LaporViewController: UIViewController, CLLocationManagerDelegate, UIImageP
     
     
     @IBAction func logoutButton(_ sender: Any) {
-        UserDefaults.standard.set(false, forKey: "status")
-        Switcher.updateRootVC()
+        try! Auth.auth().signOut()
+        self.dismiss(animated: false, completion: nil)
+        performSegue(withIdentifier: "backToBegin", sender: self)
+        //let logout = AwalViewController()
+        //logout.logOut()
+        //UserDefaults.standard.set(false, forKey: "status")
+        //Switcher.updateRootVC()
         //        let fungsiLogout = AwalViewController()
 //        fungsiLogout.logout()
     }

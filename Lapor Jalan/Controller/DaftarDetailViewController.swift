@@ -14,9 +14,13 @@ class DaftarDetailViewController: UIViewController {
     var accountKit: AKFAccountKit!
     var id: String = ""
     var nomorHp: String = ""
+    @IBOutlet weak var daftarButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        daftarButton.layer.cornerRadius = 100
+        daftarButton.clipsToBounds = true
         
         //init Account Kit
         
@@ -43,30 +47,44 @@ class DaftarDetailViewController: UIViewController {
     }
     
     
+    @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var usernameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
-    @IBOutlet weak var passwordConfirmTF: UITextField!
-    
     
     @IBAction func daftarButton(_ sender: Any) {
-                aksesAkun()
-        let username = (usernameTF.text)!
-        let password = (passwordConfirmTF.text)!
+                //aksesAkun()
+        guard let email = emailTF.text else {return}
+        guard let username = usernameTF.text else {return}
+        guard let password = passwordTF.text else {return}
+        
+        setDaftarButton(enabled: true)
         
         print(self.id)
         print(self.nomorHp)
         
         let users = Users()
-        users.uploadToFirebase(id: self.id, nomorHp: self.nomorHp, username: username, password: password)
+        users.uploadToFirebase(email: email, pass: password)
+        
+        //users.uploadToFirebase(id: self.id, nomorHp: self.nomorHp, username: username, password: password)
         
         self.performSegue(withIdentifier: "goToMenu", sender: self)
     }
     
-    @IBAction func logout(_ sender: UIButton) {}
-//    func logout(){
-//        accountKit.logOut()
-//        dismiss(animated: true, completion: nil)
-//        print("logged out")
-//    }
+    func setDaftarButton(enabled: Bool){
+        if enabled{
+            daftarButton.alpha = 1.0
+            daftarButton.isEnabled = true
+        }else{
+            daftarButton.alpha = 1.0
+            daftarButton.isEnabled = false
+        }
+    }
+    
+
+    func logout(){
+       accountKit.logOut()
+        dismiss(animated: true, completion: nil)
+        print("logged out")
+    }
     
 }

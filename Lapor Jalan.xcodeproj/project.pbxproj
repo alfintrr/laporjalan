@@ -12,6 +12,7 @@
 		63100C732074B52C0092E93A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63100C712074B52C0092E93A /* Main.storyboard */; };
 		63100C752074B52D0092E93A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63100C742074B52D0092E93A /* Assets.xcassets */; };
 		63100C782074B52D0092E93A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63100C762074B52D0092E93A /* LaunchScreen.storyboard */; };
+		63161D832152A64600FBC51A /* ImageUploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63161D822152A64600FBC51A /* ImageUploadManager.swift */; };
 		6354A89320EAF06800894174 /* DetailRiwayatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6354A89220EAF06800894174 /* DetailRiwayatViewController.swift */; };
 		635CE51020F97D2F0019841F /* Switcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635CE50F20F97D2F0019841F /* Switcher.swift */; };
 		635D86F52088D5D9006FB7A7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635D86F42088D5D9006FB7A7 /* MapViewController.swift */; };
@@ -23,12 +24,15 @@
 		6362C9F3207D38DA00C3997C /* LaporViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6362C9F2207D38DA00C3997C /* LaporViewController.swift */; };
 		63814B86208006B100957285 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63814B85208006B100957285 /* LocalAuthentication.framework */; };
 		639F845F20C8A50100C3C369 /* Laporan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F845E20C8A50100C3C369 /* Laporan.swift */; };
+		63AB5014214A16A600051D1B /* SekitarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AB5013214A16A500051D1B /* SekitarViewController.swift */; };
 		63B52BB920B8D88200990696 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63B52BB820B8D88200990696 /* GoogleService-Info.plist */; };
 		63B8590E20C76DA3003410B8 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8590D20C76DA3003410B8 /* Users.swift */; };
 		63B8591020C89776003410B8 /* DaftarDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8590F20C89776003410B8 /* DaftarDetailViewController.swift */; };
 		63D58F36208F6C0100AC46A7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D58F35208F6C0100AC46A7 /* LoginViewController.swift */; };
 		63D58F3A2090105C00AC46A7 /* LinimasaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D58F392090105C00AC46A7 /* LinimasaViewController.swift */; };
 		63D58F3C209010D400AC46A7 /* RiwayatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D58F3B209010D400AC46A7 /* RiwayatViewController.swift */; };
+		63DB4C112161437E00E0B544 /* UploadPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DB4C102161437E00E0B544 /* UploadPresenter.swift */; };
+		63DB4C1321619FB400E0B544 /* TestReferenceFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DB4C1221619FB400E0B544 /* TestReferenceFirebase.swift */; };
 		B2E2B919DCEF012ABC450DC1 /* Pods_Lapor_Jalan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7050B410FA034CBDE58EAC /* Pods_Lapor_Jalan.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +44,8 @@
 		63100C742074B52D0092E93A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63100C772074B52D0092E93A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63100C792074B52D0092E93A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63161D822152A64600FBC51A /* ImageUploadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadManager.swift; sourceTree = "<group>"; };
+		6319C5292158C4D700936222 /* Lapor Jalan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Lapor Jalan.entitlements"; sourceTree = "<group>"; };
 		6354A89220EAF06800894174 /* DetailRiwayatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRiwayatViewController.swift; sourceTree = "<group>"; };
 		635CE50F20F97D2F0019841F /* Switcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switcher.swift; sourceTree = "<group>"; };
 		635D86F42088D5D9006FB7A7 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -51,12 +57,15 @@
 		6362C9F2207D38DA00C3997C /* LaporViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaporViewController.swift; sourceTree = "<group>"; };
 		63814B85208006B100957285 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		639F845E20C8A50100C3C369 /* Laporan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Laporan.swift; sourceTree = "<group>"; };
+		63AB5013214A16A500051D1B /* SekitarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SekitarViewController.swift; sourceTree = "<group>"; };
 		63B52BB820B8D88200990696 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		63B8590D20C76DA3003410B8 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		63B8590F20C89776003410B8 /* DaftarDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaftarDetailViewController.swift; sourceTree = "<group>"; };
 		63D58F35208F6C0100AC46A7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		63D58F392090105C00AC46A7 /* LinimasaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinimasaViewController.swift; sourceTree = "<group>"; };
 		63D58F3B209010D400AC46A7 /* RiwayatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiwayatViewController.swift; sourceTree = "<group>"; };
+		63DB4C102161437E00E0B544 /* UploadPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPresenter.swift; sourceTree = "<group>"; };
+		63DB4C1221619FB400E0B544 /* TestReferenceFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestReferenceFirebase.swift; sourceTree = "<group>"; };
 		B3DD2F1E7F1EED5ADD5E4E02 /* Pods-Lapor Jalan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lapor Jalan.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lapor Jalan/Pods-Lapor Jalan.release.xcconfig"; sourceTree = "<group>"; };
 		CD7050B410FA034CBDE58EAC /* Pods_Lapor_Jalan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lapor_Jalan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6245A7B4CBB917BAE596F5E /* Pods-Lapor Jalan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lapor Jalan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lapor Jalan/Pods-Lapor Jalan.debug.xcconfig"; sourceTree = "<group>"; };
@@ -105,6 +114,7 @@
 		63100C6C2074B52C0092E93A /* Lapor Jalan */ = {
 			isa = PBXGroup;
 			children = (
+				6319C5292158C4D700936222 /* Lapor Jalan.entitlements */,
 				63100C832074BBBC0092E93A /* Model */,
 				63100C812074BB930092E93A /* Controller */,
 				63100C822074BBA00092E93A /* View */,
@@ -131,6 +141,7 @@
 				635D86FC2088ECF9006FB7A7 /* UIViewExtension.swift */,
 				63627D7A20E4018C00E64F2D /* TableViewCell.swift */,
 				635CE50F20F97D2F0019841F /* Switcher.swift */,
+				63AB5013214A16A500051D1B /* SekitarViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -151,6 +162,9 @@
 				635D86FA2088D684006FB7A7 /* GooglePlaces.swift */,
 				63B8590D20C76DA3003410B8 /* Users.swift */,
 				639F845E20C8A50100C3C369 /* Laporan.swift */,
+				63161D822152A64600FBC51A /* ImageUploadManager.swift */,
+				63DB4C102161437E00E0B544 /* UploadPresenter.swift */,
+				63DB4C1221619FB400E0B544 /* TestReferenceFirebase.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -199,6 +213,17 @@
 				TargetAttributes = {
 					63100C692074B52C0092E93A = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.DataProtection = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -288,11 +313,12 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
@@ -304,11 +330,12 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
@@ -327,6 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63DB4C112161437E00E0B544 /* UploadPresenter.swift in Sources */,
 				63100C702074B52C0092E93A /* AwalViewController.swift in Sources */,
 				63627D7B20E4018C00E64F2D /* TableViewCell.swift in Sources */,
 				635CE51020F97D2F0019841F /* Switcher.swift in Sources */,
@@ -339,9 +367,12 @@
 				6362C9F3207D38DA00C3997C /* LaporViewController.swift in Sources */,
 				63B8591020C89776003410B8 /* DaftarDetailViewController.swift in Sources */,
 				635D86FB2088D684006FB7A7 /* GooglePlaces.swift in Sources */,
+				63AB5014214A16A600051D1B /* SekitarViewController.swift in Sources */,
+				63DB4C1321619FB400E0B544 /* TestReferenceFirebase.swift in Sources */,
 				63B8590E20C76DA3003410B8 /* Users.swift in Sources */,
 				635D86FD2088ECF9006FB7A7 /* UIViewExtension.swift in Sources */,
 				63D58F36208F6C0100AC46A7 /* LoginViewController.swift in Sources */,
+				63161D832152A64600FBC51A /* ImageUploadManager.swift in Sources */,
 				635D86F52088D5D9006FB7A7 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

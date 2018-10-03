@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '10.1'
 
 target 'Lapor Jalan' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -24,8 +24,13 @@ target 'Lapor Jalan' do
     #Firebase
     pod 'Firebase/Core'
     pod 'Firebase/Firestore'
+    pod 'Firebase/Database'
+    pod 'Firebase/Storage'
     
     #Firebase Phone SignIn
     pod 'Firebase/Auth'
+    
+    #Grid layout
+    #pod 'Haneke', '-> 1.0'
     
 end

@@ -39,10 +39,14 @@
 	<string>Izinkan kami mengakses lokasi anda</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Izinkan kami mengakses lokasi anda</string>
+	<key>NSMainStoryboardFile</key>
+	<string>Main</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string></string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string></string>
+	<key>UIBackgroundModes</key>
+	<array/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

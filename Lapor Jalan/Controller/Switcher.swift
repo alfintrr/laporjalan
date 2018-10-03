@@ -18,11 +18,10 @@ class Switcher{
         
         print(status)
         
-        
         if(status == true){
-            rootVC = UIStoryboard(name: "Awal", bundle: nil).instantiateViewController(withIdentifier: "lapor") as! LaporViewController
+            rootVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "lapor") as! LaporViewController
         }else{
-            rootVC = UIStoryboard(name: "Awal", bundle: nil).instantiateViewController(withIdentifier: "begin") as! AwalViewController
+            rootVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "begin") as! AwalViewController
         }
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate

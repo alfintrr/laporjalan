@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // [END default_firestore]
         print(db) // silence warning
         
-        Switcher.updateRootVC()
+        //Switcher.updateRootVC()
         return true
     }
 
@@ -89,4 +89,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return UIColor(cgColor: color)
         }
     }
+    
 }

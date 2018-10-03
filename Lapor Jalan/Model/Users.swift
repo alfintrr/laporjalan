@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import FirebaseFirestore
+import Firebase
 
 
 class Users{
@@ -28,19 +28,28 @@ class Users{
         db = Firestore.firestore()
     }
     
-    func uploadToFirebase(id: String, nomorHp: String, username: String, password: String) -> String{
-        dbConnection()
-        db.collection("pengguna").document(username).setData(["id": id, "nomorHp": nomorHp, "username": username, "password": password]) {err in
-            if let err = err {
-                print("Error writing document: \(err)")
-                
-            } else {
-                print("Document successfully written!")
-                
+//    func uploadToFirebase(id: String, nomorHp: String, username: String, password: String) -> String{
+//        dbConnection()
+//        db.collection("pengguna").document(username).setData(["id": id, "nomorHp": nomorHp, "username": username, "password": password]) {err in
+//            if let err = err {
+//                print("Error writing document: \(err)")
+//
+//            } else {
+//                print("Document successfully written!")
+//
+//            }
+//        }
+//        return ""
+//    }
+
+    func uploadToFirebase(email: String, pass: String){
+        Auth.auth().createUser(withEmail: email, password: pass) {user, error in
+            if error == nil && user != nil{
+                print("user created")
+            }else{
+                print("Error: \(error?.localizedDescription)")
             }
-        }
-        return ""
     }
     
 }
-
+}
