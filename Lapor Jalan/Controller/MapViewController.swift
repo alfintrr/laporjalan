@@ -38,6 +38,10 @@ class MapViewController: UIViewController {
     
     @IBOutlet weak var addressLabel: UILabel!
     
+    var lat = Double()
+    var long = Double()
+    var thoroughfare = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
@@ -50,9 +54,12 @@ class MapViewController: UIViewController {
 
     //Exit a.k.a Save / unwind
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let laporController = segue.destination as! LaporViewController
+        let laporController = segue.destination as! LaporAdminViewController
         if addressLabel.text != "" {
             laporController.lokasi = addressLabel.text!
+            laporController.lat = lat
+            laporController.long = long
+            laporController.thoroughfare = thoroughfare
         }
         
     }
@@ -100,8 +107,17 @@ extension MapViewController: CLLocationManagerDelegate {
             guard let address = response?.firstResult(), let lines = address.lines else {
                 return
             }
-            
             // 3
+        
+            let roadName = address.thoroughfare!
+            if let road = roadName.range(of: "Jalan")?.lowerBound {
+                let substring = roadName[..<road]
+                let string = String(substring)
+                self.thoroughfare = roadName.replacingOccurrences(of: string, with: "")
+               // print(replaced)  // "ora"
+            }
+            self.lat = address.coordinate.latitude
+            self.long = address.coordinate.longitude
             self.addressLabel.text = lines.joined(separator: "\n")
             
             // 1

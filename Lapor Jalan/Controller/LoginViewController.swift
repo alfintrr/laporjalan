@@ -14,8 +14,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     var activityView:UIActivityIndicatorView!
     
+    var emailTest = ""
+    var passTest = ""
+    
     override func viewDidLoad() {
         setLoginButton(enabled: false)
+        
         emailTF.delegate = self
         passwordTF.delegate = self
         
@@ -27,9 +31,51 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBAction func loginButton(_ sender: Any) {
-        //UserDefaults.standard.set(true, forKey: "status")
-//        Switcher.updateRootVC()
-        handleSignIn()
+        
+        loginAction()
+    }
+    
+    func loginAction(){
+        //UJI
+//        let email = emailTest
+//        let password = passTest
+        
+        guard let email = emailTF.text else {return}
+        guard let password = passwordTF.text else {return}
+        
+        let user = Users()
+        user.signInWithEmail(email: email, pass: password, completionBlock: { [unowned self] (email, errorMessage) in
+            if email != nil{
+                print("signed in")
+                print("SUKSES")
+                if email == "admin@gmail.com"{
+                    self.signedInAsAdmin()
+                }else{
+                    self.signedIn()
+                }
+            }else{
+                print("GAGAL")
+                let alert = UIAlertController(title: "Kesalahan!!", message: "Email atau password tidak terdaftar", preferredStyle: UIAlertControllerStyle.alert)
+                let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel) { (alert: UIAlertAction!) -> Void in
+                    
+                }
+                alert.addAction(okAction)
+                self.present(alert, animated: true, completion:nil)
+            }
+        } )
+    }
+    
+
+    func signedIn(){
+        self.performSegue(withIdentifier: "loginToMenu", sender: self)
+    }
+    
+    func signedInAsAdmin(){
+        self.performSegue(withIdentifier: "adminLoginToMenu", sender: self)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     @objc func textFieldChanged(_ target:UITextField) {
@@ -39,24 +85,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         setLoginButton(enabled: formFilled)
     }
     
-    
-    
-
-    @objc func handleSignIn(){
-        guard let email = emailTF.text else { return}
-        guard let pass = passwordTF.text else { return}
-
-        activityView.startAnimating()
-
-        Auth.auth().signIn(withEmail: email, password: pass){ user, error in
-            if error == nil && user != nil {
-                self.dismiss(animated: false, completion: nil)
-            }else{
-                print("Error logging in: \(error?.localizedDescription)")
-            }
-        }
-    }
-
     func setLoginButton(enabled: Bool){
         if enabled{
             loginButton.alpha = 1.0
@@ -67,24 +95,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        // Resigns the target textField and assigns the next textField in the form.
-        
-        switch textField {
-        case emailTF:
-            emailTF.resignFirstResponder()
-            passwordTF.becomeFirstResponder()
-            break
-        case passwordTF:
-            handleSignIn()
-            break
-        default:
-            break
-        }
-        return true
-    }
-    
 }
+
 
 

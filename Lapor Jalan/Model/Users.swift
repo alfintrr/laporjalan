@@ -11,45 +11,53 @@ import Firebase
 
 
 class Users{
-    var db: Firestore!
-//    let id = String()
-//    var nomorhp = String()
-//    var username = String()
-//    var password = String()
-//
-
     
-    func dbConnection(){
-        // [START setup]
-        let settings = FirestoreSettings()
-        
-        Firestore.firestore().settings = settings
-        // [END setup]
-        db = Firestore.firestore()
+//    var signInStatus = false
+//    var SignUpStatus = false
+    
+    func signInWithEmail(email: String, pass:  String, completionBlock: @escaping (_ user: String?, _ errorMessage: String?) -> Void){
+        Auth.auth().signIn(withEmail: email, password: pass) { (user, error) in
+            if error == nil && user != nil{
+                print("signed in")
+                completionBlock(email, nil)
+
+            }else{
+                print("Error: \(String(describing: error?.localizedDescription))")
+                completionBlock(nil, error as? String)
+            }
+        }
     }
     
-//    func uploadToFirebase(id: String, nomorHp: String, username: String, password: String) -> String{
-//        dbConnection()
-//        db.collection("pengguna").document(username).setData(["id": id, "nomorHp": nomorHp, "username": username, "password": password]) {err in
-//            if let err = err {
-//                print("Error writing document: \(err)")
+//    func signInWithEmail(email: String, pass:  String, completionBlock: @escaping (_ user: String?, _ errorMessage: String?) -> Void){
+//        do{
+//            try Auth.auth().signIn(withEmail: email, password: pass)
+//        } catch let signUpError as NSError {
 //
-//            } else {
-//                print("Document successfully written!")
-//
-//            }
 //        }
-//        return ""
 //    }
-
-    func uploadToFirebase(email: String, pass: String){
+    
+    func signUpToFirebase(email: String, pass: String, completionBlock: @escaping (_ user: String?, _ errorMessage: String?) -> Void){
         Auth.auth().createUser(withEmail: email, password: pass) {user, error in
             if error == nil && user != nil{
                 print("user created")
+                completionBlock(email, nil)
+
             }else{
-                print("Error: \(error?.localizedDescription)")
+                print("Error: \(String(describing: error?.localizedDescription))")
+                completionBlock(nil, error?.localizedDescription)
             }
+        }
     }
     
-}
+    func logOut(completionBlock: @escaping (_ errorMessage: String?) -> Void){
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            print("sukses signout")
+            completionBlock(nil)
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+            
+        }
+    }
 }

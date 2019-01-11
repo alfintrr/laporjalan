@@ -6,78 +6,60 @@
 //  Copyright © 2018 Alfin Taufiqurrahman. All rights reserved.
 //
 
-import Foundation
-import FirebaseFirestore
-
-class Laporan{
-    var db: Firestore!
+    import UIKit
     
-    func dbConnection(){
-        // [START setup]
-        let settings = FirestoreSettings()
+    struct Laporan {
         
-        Firestore.firestore().settings = settings
-        // [END setup]
-        db = Firestore.firestore()
-    }
-    
-    func uploadToFirebase(id: String, nomorHp: String, username: String, password: String) -> String{
-        dbConnection()
-        db.collection("pengguna").document(username).setData(["id": id, "nomorHp": nomorHp, "username": username, "password": password]) {err in
-            if let err = err {
-                print("Error writing document: \(err)")
-                
-            } else {
-                print("Document successfully written!")
-                
+        var objectID: String!
+        var email: String!
+        var tanggal: String!
+        var image: UIImage?
+        var imageURL: String!
+        var lokasi: String!
+        var lat: Double!
+        var long: Double!
+        var thoroughfare: String!
+        var deskripsi: String!
+        var kerusakan: String!
+        var status: String!
+        var level: Int!
+        
+        init?(dictionary: [String: Any]?, objectID: String) {
+            guard let dictionary = dictionary,
+                let email = dictionary["email"] as? String,
+                let tanggal = dictionary["tanggal"] as? String,
+                let lokasi = dictionary["lokasi"] as? String,
+                let lat = dictionary["lat"] as? Double,
+                let long = dictionary["long"] as? Double,
+                let thoroughfare = dictionary["thoroughfare"] as? String,
+                let deskripsi = dictionary["deskripsi"] as? String,
+                let kerusakan = dictionary["kerusakan"] as? String,
+                let status = dictionary["status"] as? String,
+                let level = dictionary["level"] as? Int,
+                let imageURL = dictionary["imageURL"] as? String else {
+                    return nil
             }
+            
+            self.init(objectID: objectID, email: email, tanggal: tanggal, lokasi: lokasi, lat: lat, long: long, thoroughfare: thoroughfare, deskripsi: deskripsi, kerusakan: kerusakan, status: status, level: level, imageURL: imageURL)
         }
-        return ""
+        
+        init(objectID: String?, email: String, tanggal: String, lokasi: String, lat: Double, long: Double, thoroughfare: String, deskripsi: String, kerusakan: String, status: String, level: Int, imageURL: String) {
+            self.objectID = objectID ?? ""
+            self.email = email
+            self.tanggal = tanggal
+            self.lokasi = lokasi
+            self.lat = lat
+            self.long = long
+            self.thoroughfare = thoroughfare
+            self.deskripsi = deskripsi
+            self.kerusakan = kerusakan
+            self.status = status
+            self.level = level
+            self.imageURL = imageURL
+        }
+        
+        func dictionary() -> [String: Any] {
+            return ["email": email, "tanggal": tanggal, "lokasi": lokasi, "lat": lat, "long": long, "thoroughfare": thoroughfare, "deskripsi": deskripsi, "kerusakan": kerusakan, "status": status, "level": level, "imageURL": imageURL]
+        }
+        
     }
-    
-    //MARK: -upload image to storage the catch the url
-    
-//    func uploadMedia(completion: @escaping (_ url: String?) -> Void) {
-//        let storageRef = FIRStorage.storage().reference().child("myImage.png")
-//        if let uploadData = UIImagePNGRepresentation(self.myImageView.image!) {
-//            storageRef.put(uploadData, metadata: nil) { (metadata, error) in
-//                if error != nil {
-//                    print("error")
-//                    completion(nil)
-//                } else {
-//                    completion((metadata?.downloadURL()?.absoluteString)!))
-//                    // your uploaded photo url.
-//                }
-//            }
-//        }
-//
-//        func kirim(){
-//        if self.titleText.text   != "" && self.authorText.text != ""
-//            && self.mainText.text != "" && self.dateText.text   != "" {
-//
-//            uploadMedia() { url in
-//                if url != nil {
-//                    ref?.child("Posts").childByAutoId().setValue([
-//                        "Title"      : titleText.text,
-//                        "Article"    : mainText.text,
-//                        "Author"     : authorText.text,
-//                        "Date"       : dateText.text,
-//                        "myImageURL" : url!
-//                        ])
-//                }
-//            }
-//        }
-//        }
-    
-//    private func kirimSemua(){
-//        db.collection("cities").document("laporan").setData(["username": "alfintaufiq", "date": tanggal, "image": UIImagePickerControllerOriginalImage, "lokasi": lokasi, "deskripsi": "deskripsi"]) {err in
-//            if let err = err {
-//                print("Error writing document: \(err)")
-//            } else {
-//                print("Document successfully written!")
-//            }
-//        }
-//    }
-    
-    
-}

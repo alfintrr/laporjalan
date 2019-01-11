@@ -21,49 +21,39 @@ import FirebaseFirestore
 
 class UploadPresenter: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    var getDownloadURL = ImageUploadManager()
+    let laporView = LaporViewController()
+    
     private weak var viewController: LaporViewController?
     private let imageUploadManager = ImageUploadManager()
     
-    private let collection = Firestore.firestore().collection("cars")
+    private let collection = Firestore.firestore().collection("laporan")
     
     init(viewController: LaporViewController?) {
         self.viewController = viewController
     }
     
-    // MARK: Image picker
-    func showImagePicker() {
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.delegate = self
-        imagePickerController.allowsEditing = false
-        imagePickerController.sourceType = .photoLibrary
-        viewController?.present(imagePickerController, animated: true, completion: nil)
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            picker.dismiss(animated: true, completion: nil)
-            
-            
-            //viewController?.userSelectedImage(image)
-        }
-    }
-    
     // MARK: Uploading content
-    func createCar(withImage image: UIImage, title: String, price: Int) {
-        // 1. show the uploading state
-        viewController?.showUploadingState(true)
-        // 2. upload the image
+    func uploadLaporan(withImage image: UIImage, email: String, tanggal: String, lokasi: String, lat: Double, long: Double, thoroughfare: String, deskripsi: String, kerusakan: String, status: String, level: Int, completionBlock: @escaping (_ errorMessage: String?) -> Void){
+
         imageUploadManager.uploadImage(image, progressBlock: { [unowned self] (percentage) in
             print(percentage)
-            self.viewController?.updateProgressView(with: percentage)
-            }, completionBlock: { [unowned self] (fileURL, errorMessage) in
-                if let fileURL = fileURL {
+            }, completionBlock: { [unowned self] (downloadURL, errorMessage) in
+                print("ini berjalan")
+                if let fileURL = downloadURL {
                     // 3. create the car object with the image url
-                    self.createCar(title: title, price: price, imageURL: fileURL.absoluteString)
+                    self.uploadLaporan(email: email, tanggal: tanggal, lokasi: lokasi, lat: lat, long: long, thoroughfare: thoroughfare, deskripsi: deskripsi, kerusakan: kerusakan, status: status, level: level, imageURL: fileURL.absoluteString, completionBlock: { [unowned self] (errorMessage) in
+                        if errorMessage == nil{
+//                            print("signed in")
+                            completionBlock(nil)
+                        }
+//                        else{
+//                            print("Error: \(errorMessage?.localizedDescription)")
+//                            completionBlock(error?.localizedDescription)
+//                        }
+                    
+                    })
+                    
                 } else {
                     // TODO: error handling
                     if let error = errorMessage {
@@ -73,14 +63,26 @@ class UploadPresenter: NSObject, UIImagePickerControllerDelegate, UINavigationCo
         })
     }
     
-    private func createCar(title: String, price: Int, imageURL: String) {
-        let car = Car(objectID: nil, name: title, price: NSNumber(value: price), imageURL: imageURL)
-        collection.addDocument(data: car.dictionary()) { [unowned self] (error) in
-            if let error = error {
-                self.viewController?.handleError(error.localizedDescription)
-            } else {
-                self.viewController?.dismiss(animated: true, completion: nil)
+    private func uploadLaporan(email: String, tanggal: String, lokasi: String, lat: Double, long: Double, thoroughfare: String, deskripsi: String, kerusakan: String, status: String, level: Int, imageURL: String, completionBlock: @escaping (_ errorMessage: String?) -> Void) {
+        let laporan = Laporan(objectID: nil, email: email, tanggal: tanggal, lokasi: lokasi, lat: lat, long: long, thoroughfare: thoroughfare, deskripsi: deskripsi, kerusakan: kerusakan, status: status, level: level, imageURL: imageURL)
+        collection.addDocument(data: laporan.dictionary()) { [unowned self] (error) in
+            if error == nil{
+                print("uploaded")
+                completionBlock(nil)
+                
+            }else{
+                print("Error: \(String(describing: error?.localizedDescription))")
+                completionBlock(error?.localizedDescription)
             }
+            //            if let error = error {
+//                self.viewController?.handleError(error.localizedDescription)
+//            } else {
+//                //self.viewController?.dismiss(animated: true, completion: nil)
+//
+//                //pannggil fungsi clear semua field
+//                self.laporView.callDismissAlert()
+//                print("indicator should end")
+//            }
         }
     }
     

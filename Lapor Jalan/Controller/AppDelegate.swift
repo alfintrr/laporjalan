@@ -11,13 +11,16 @@ import GoogleMaps
 import Firebase
 import FirebaseFirestore
 
-let googleApiKey = "AIzaSyC0YEOwLysCJNM3ECnBgBs8mZ7CCsFLTc4"
+//old api:AIzaSyC0YEOwLysCJNM3ECnBgBs8mZ7CCsFLTc4
+
+let googleApiKey = "AIzaSyBQE9svud6i2xz69VDlj5rpzB2WOofjins"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     var window: UIWindow?
+    var email: String?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -27,8 +30,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
 
         let db = Firestore.firestore()
+        let settings = db.settings
+        settings.areTimestampsInSnapshotsEnabled = true
+        //db.settings = settings
+        
         // [END default_firestore]
-        print(db) // silence warning
+       // print(db) // silence warning
         
         //Switcher.updateRootVC()
         return true
@@ -87,6 +94,101 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         get {
             guard let color = layer.borderColor else { return nil }
             return UIColor(cgColor: color)
+        }
+    }
+    
+}
+
+@IBDesignable extension UITextField{
+    @IBInspectable var borderWidth: CGFloat {
+        set {
+            layer.borderWidth = newValue
+        }
+        get {
+            return layer.borderWidth
+        }
+    }
+    
+    @IBInspectable var cornerRadius: CGFloat {
+        set {
+            layer.cornerRadius = newValue
+        }
+        get {
+            return layer.cornerRadius
+        }
+    }
+    
+    @IBInspectable var borderColor: UIColor? {
+        set {
+            guard let uiColor = newValue else { return }
+            layer.borderColor = uiColor.cgColor
+        }
+        get {
+            guard let color = layer.borderColor else { return nil }
+            return UIColor(cgColor: color)
+        }
+    }
+    
+}
+
+@IBDesignable extension UILabel{
+    @IBInspectable var borderWidth: CGFloat {
+        set {
+            layer.borderWidth = newValue
+        }
+        get {
+            return layer.borderWidth
+        }
+    }
+    
+    @IBInspectable var cornerRadius: CGFloat {
+        set {
+            layer.cornerRadius = newValue
+        }
+        get {
+            return layer.cornerRadius
+        }
+    }
+    
+    @IBInspectable var borderColor: UIColor? {
+        set {
+            guard let uiColor = newValue else { return }
+            layer.borderColor = uiColor.cgColor
+        }
+        get {
+            guard let color = layer.borderColor else { return nil }
+            return UIColor(cgColor: color)
+        }
+    }
+    
+    @IBInspectable var masksToBounds: Bool {
+        set {
+            layer.masksToBounds = newValue
+        }
+        get {
+            return layer.masksToBounds
+        }
+    }
+    
+}
+
+@IBDesignable class RoundUIView: UIView {
+    
+    @IBInspectable var borderColor: UIColor = UIColor.white {
+        didSet {
+            self.layer.borderColor = borderColor.cgColor
+        }
+    }
+    
+    @IBInspectable var borderWidth: CGFloat = 2.0 {
+        didSet {
+            self.layer.borderWidth = borderWidth
+        }
+    }
+    
+    @IBInspectable var cornerRadius: CGFloat = 0.0 {
+        didSet {
+            self.layer.cornerRadius = cornerRadius
         }
     }
     

@@ -30,7 +30,14 @@ target 'Lapor Jalan' do
     #Firebase Phone SignIn
     pod 'Firebase/Auth'
     
-    #Grid layout
-    #pod 'Haneke', '-> 1.0'
+    #Fetch objects
+    pod 'Haneke'
+
+    pod 'MaterialShowcase'
     
 end
+
+target 'Lapor JalanTests' do
+    inherit! :search_paths
+end
+
